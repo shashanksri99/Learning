@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>user page</title>
+    <link rel="stylesheet" href="{% static "/appTwo/CSS/style.css" %}">
+    </style>
+  </head>
+  <body>
+    <h1>This is the user page</h1>
+    {% if users %}
+      <ol>
+        {% for u in users %}
+        <li>user info</li>
+          <ul>
+            <li>First Name: {{ u.first_name }}</li>
+            <li>Last Name: {{ u.last_name }}</li>
+            <li>email: {{ u.email }}</li>
+          </ul>
+        {% endfor %}  
+      </ol>
+    {% else %}
+        <p>There is no user record present</p>
+    {% endif %}
+  </body>
+</html>

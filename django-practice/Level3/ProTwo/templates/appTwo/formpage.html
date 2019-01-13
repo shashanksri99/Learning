@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="{% static "/appTwo/CSS/style.css" %}">
+    </style>
+  </head>
+  <body>
+    <h1>This is the sample form page</h1>
+    {{ form.as_p }}
+    {% csrf_token %}
+  </body>
+</html>
