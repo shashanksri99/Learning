@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User Page</title>
+    <link rel="stylesheet" href="{% static "CSS/style.css" %}">
+  </head>
+  <body>
+    <h1>Here are your users:</h1>
+
+    <div class="djangouser">
+      {% if user %}
+        {% for usr in user %}
+        <ol>
+          <li>User Info:</li>
+          <ul>
+            <li>{{ usr.first_name }}</li>
+            <li>{{ usr.last_name }}</li>
+            <li>{{ usr.user_email }}</li>
+          </ul>
+        </ol>
+        {% endfor %}
+        {% else %}
+        <p>No user information present </p>
+        {% endif %}
+      </div>
+
+  </body>
+</html>

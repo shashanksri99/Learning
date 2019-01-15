@@ -8,7 +8,7 @@ import django
 django.setup()
 
 import random
-from appTwo.models import Topic,Webpage,AccessRecord
+from appTwo.models import Topic,Webpage,AccessRecord,User
 from faker import Faker
 
 fakegen = Faker()
@@ -35,6 +35,12 @@ def populate(N=5):
         fake_url = fakegen.url()
         fake_date = fakegen.date()
         fake_name = fakegen.company()
+        fake_name_first = fakegen.first_name()
+        fake_name_last = fakegen.last_name()
+        fake_email = fakegen.email()
+
+        #Creating user data
+        user_data = User.objects.get_or_create(first_name=fake_name_first,last_name=fake_name_last,user_email=fake_email)
 
         # Create new Webpage Entry
         webpg = Webpage.objects.get_or_create(topic=top,url=fake_url,name=fake_name)[0]
