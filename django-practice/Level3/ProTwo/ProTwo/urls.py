@@ -22,5 +22,6 @@ urlpatterns = [
 #    url(r'^users/',include('appTwo/urls')),
     url(r'^$',views.index, name ='index'),
     url(r'^forms/',views.form_page, name ='user_form'),
+    url(r'^userform/',views.UserFormView, name ='user_form'),
 #    url(r'^index/',include('appTwo/urls')),
 ]

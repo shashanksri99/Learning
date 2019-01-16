@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from appTwo.models import User
-from appTwo.forms import FormName
+from appTwo.forms import FormName,UserForm
 #from . import forms
 # Create your views here.
 
@@ -25,3 +25,16 @@ def form_page(request):
             print("text: " + form.cleaned_data['text'])
 
     return render(request, 'appTwo/formpage.html', {'form':form})
+
+def UserFormView(request):
+    form = UserForm()
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+        else:
+            print("Error while saving the form")
+
+
+    return render(request, 'appTwo/userform.html', {'form':form})

@@ -1,7 +1,8 @@
 from django import forms
 #for using built in validators
 from django.core import validators
-#from appTwo.models import User
+from appTwo.models import User
+
 
 #creating your own validator using validators
 # def check_for_z(value):
@@ -30,3 +31,8 @@ class FormName(forms.Form):
     #     if if(botcatcher) > 0:
     #         raise forms.ValidationError("Gotta BOT!")
     #     return botcatcher
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = "__all__"
